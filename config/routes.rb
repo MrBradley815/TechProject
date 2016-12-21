@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
     #SESSIONS  pour one out for my homies
+    get 'brad/awesome' => 'ben/sucka'
     root 'sessions#index'
     post 'sessions/create' => 'sessions#create'
     delete 'sessions' => 'sessions#logout'
