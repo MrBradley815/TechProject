@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
-
+    #SESSIONS
     root 'sessions#index'
     post 'sessions/create' => 'sessions#create'
-    delete 'sessions/delete' => 'sessions#logout'
-
+    delete 'sessions' => 'sessions#logout'
+    #USERS
     get 'users' => 'users#index'
     get 'users/new' => 'users#new'
     post 'users/create' => 'users#create'
@@ -11,7 +11,7 @@ Rails.application.routes.draw do
     get 'users/edit/:id' => 'users#edit'
     patch 'users/:id' => 'users#update'
     delete 'users/:id' => 'users#destroy'
-
+    #COMPANIES
     get 'companies' => 'companies#index'
     get 'companies/new' => 'companies#new'
     post 'companies/create' => 'companies#create'
@@ -19,7 +19,7 @@ Rails.application.routes.draw do
     get 'companies/:id/edit' => 'companies#edit'
     patch 'companies/:id' => 'companies#update'
     delete 'companies/:id' => 'companies#destroy'
-
+    #ORDERS
     get 'orders' => 'orders#index'
     get 'orders/new' => 'orders#new'
     post 'orders/create' => 'orders#create'
