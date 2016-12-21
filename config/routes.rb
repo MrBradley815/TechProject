@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-    #SESSIONS
+    #SESSIONS  pour one out for my homies
     root 'sessions#index'
     post 'sessions/create' => 'sessions#create'
     delete 'sessions' => 'sessions#logout'
