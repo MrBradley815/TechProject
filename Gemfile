@@ -42,6 +42,12 @@ group :test do
 	gem 'capybara'
 end
 
+gem 'bootstrap-sass'
+#Bootstrap
+
+source 'https://rails-assets.org' do
+	gem 'rails-assets-tether', '>=1.1.0'
+end
 
 #Footnotes
 # gem 'rails-footnotes'

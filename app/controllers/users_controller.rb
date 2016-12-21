@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
 	before_action :require_correct_user, only: [:edit, :update]
 	def index
-
+		@states = us_states
 	end
 	def new
 

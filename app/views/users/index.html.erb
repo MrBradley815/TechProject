@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style type="text/css">
+	.leftForm{
+		display: inline-block;
+		margin-right: 45px;
+		margin-left: 10px;
+		vertical-align: top;
+	}
+	.rightForm{
+		display: inline-block;
+		padding-left: 45px;
+		border-left: 5px solid black;
+	}
+	span{
+		margin-left: 175px;
+	}
+	span input{
+		padding: 5px 30px;
+		font-family: cursive;
+		border-radius: 10px;
+		background-color: blue;
+		color: white;
+	}
+</style>
+	<title>Place Order</title>
+</head>
+<body>
+<h1 class='CourierName'>ABC Company</h1>
+<h2 class='CourierName'>555-5555</h2>
+<div class='leftForm'>
+<form action='/'>
+	<h3>Pick Up Location</h3>
+	<input type="hidden" name="authenticity_token" value='<%= form_authenticity_token %>'>
+	<p>Company Name: <input type="text" name="order[name]" value='<%= current_user.company.name %>'></p>
+	<p>First Name: <input type="text" name="user[first]" value='<%= current_user.first %>'></p>
+	<p>Last Name: <input type="text" name="user[last]" value='<%= current_user.last %>'></p>
+	<p>Phone Number: <input type="text" name="order[phone]" value='<%= current_user.company.phone %>'></p>
+	<p>Street: <input type="text" name="order[street]" value='<%= current_user.company.street %>'></p>
+	<p>Suite: <input type="text" name="order[suite]" value='<%= current_user.company.suite %>'></p>
+	<p>City: <input type="text" name="order[city]" value='<%= current_user.company.city %>'></p>
+	<p>State: <%= select_tag "order[state]", options_for_select(us_states.collect{ |state| [state[0], state[1]]}, current_user.company.state) %>
+		  Zip: <input type="text" name="company[zip]" value='<%= current_user.company.zip %>'></p>
+	</div>	
+	<div class='rightForm'>
+	<h3>Delivery Location</h3>
+	<input type="hidden" name="authenticity_token" value='<%= form_authenticity_token %>'>
+	<p>Company Name: <input type="text" name="company[name]"></p>
+	<p>First Name: <input type="text" name="user[first]"></p>
+	<p>Last Name: <input type="text" name="user[last]"></p>
+	<p>Phone Number: <input type="text" name="company[phone]"></p>
+	<p>Street: <input type="text" name="company[street]"></p>
+	<p>Suite: <input type="text" name="company[suite]"></p>
+	<p>City: <input type="text" name="company[city]"></p>
+	<p>State: <%= select_tag "order[state]", options_for_select(us_states.collect{ |state| [state[0], state[1]]}, current_user.company.state) %>  Zip: <input type="text" name="company[zip]"></p>
+</div>	
+	<p><span><input type="submit" value="Next"></span></p>
+</form>
+</body>
+</html>
