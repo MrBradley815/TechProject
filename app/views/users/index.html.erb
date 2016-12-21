@@ -33,28 +33,27 @@
 <form action='/'>
 	<h3>Pick Up Location</h3>
 	<input type="hidden" name="authenticity_token" value='<%= form_authenticity_token %>'>
-	<p>Company Name: <input type="text" name="order[name]" value='<%= current_user.company.name %>'></p>
-	<p>First Name: <input type="text" name="user[first]" value='<%= current_user.first %>'></p>
-	<p>Last Name: <input type="text" name="user[last]" value='<%= current_user.last %>'></p>
-	<p>Phone Number: <input type="text" name="order[phone]" value='<%= current_user.company.phone %>'></p>
-	<p>Street: <input type="text" name="order[street]" value='<%= current_user.company.street %>'></p>
-	<p>Suite: <input type="text" name="order[suite]" value='<%= current_user.company.suite %>'></p>
-	<p>City: <input type="text" name="order[city]" value='<%= current_user.company.city %>'></p>
-	<p>State: <%= select_tag "order[state]", options_for_select(us_states.collect{ |state| [state[0], state[1]]}, current_user.company.state) %>
-		  Zip: <input type="text" name="company[zip]" value='<%= current_user.company.zip %>'></p>
-	</div>	
+	<p>Company Name: <input type="text" name="pick_up[name]" value='<%= current_user.company.name %>'></p>
+	<p>First Name: <input type="text" name="pick_up[first]" value='<%= current_user.first %>'></p>
+	<p>Last Name: <input type="text" name="pick_up[last]" value='<%= current_user.last %>'></p>
+	<p>Phone Number: <input type="text" name="pick_up[phone]" value='<%= current_user.company.phone %>'></p>
+	<p>Street: <input type="text" name="pick_up[street]" value='<%= current_user.company.street %>'></p>
+	<p>Suite: <input type="text" name="pick_up[suite]" value='<%= current_user.company.suite %>'></p>
+	<p>City: <input type="text" name="pick_up[city]" value='<%= current_user.company.city %>'></p>
+	<p>State: <%= select_tag "pick_up[state]", options_for_select(us_states.collect{ |state| [state[0], state[1]]}, current_user.company.state) %> Zip: <input type="text" name="pick_up[zip]" value='<%= current_user.company.zip %>'></p>
+	</div>
 	<div class='rightForm'>
-	<h3>Delivery Location</h3>
-	<input type="hidden" name="authenticity_token" value='<%= form_authenticity_token %>'>
-	<p>Company Name: <input type="text" name="company[name]"></p>
-	<p>First Name: <input type="text" name="user[first]"></p>
-	<p>Last Name: <input type="text" name="user[last]"></p>
-	<p>Phone Number: <input type="text" name="company[phone]"></p>
-	<p>Street: <input type="text" name="company[street]"></p>
-	<p>Suite: <input type="text" name="company[suite]"></p>
-	<p>City: <input type="text" name="company[city]"></p>
-	<p>State: <%= select_tag "order[state]", options_for_select(us_states.collect{ |state| [state[0], state[1]]}, current_user.company.state) %>  Zip: <input type="text" name="company[zip]"></p>
-</div>	
+		<h3>Delivery Location</h3>
+		<input type="hidden" name="authenticity_token" value='<%= form_authenticity_token %>'>
+		<p>Company Name: <input type="text" name="delivery[name]"></p>
+		<p>First Name: <input type="text" name="delivery[first]"></p>
+		<p>Last Name: <input type="text" name="delivery[last]"></p>
+		<p>Phone Number: <input type="text" name="delivery[phone]"></p>
+		<p>Street: <input type="text" name="delivery[street]"></p>
+		<p>Suite: <input type="text" name="delivery[suite]"></p>
+		<p>City: <input type="text" name="delivery[city]"></p>
+		<p>State: <%= select_tag "delivery[state]", options_for_select(us_states.collect{ |state| [state[0], state[1]]}, current_user.company.state) %>  Zip: <input type="text" name="delivery[zip]"></p>
+	</div>
 	<p><span><input type="submit" value="Next"></span></p>
 </form>
 </body>

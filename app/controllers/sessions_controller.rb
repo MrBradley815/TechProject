@@ -16,14 +16,10 @@ class SessionsController < ApplicationController
 		redirect_to root_path
 	end
 
-	private	
+	private
 		def login_params
 			params.require(:login).permit(:email, :password)
 		end
-		def order_params
-			params.require(:company).permit(:name, :phone, :street, :suite, :city, :state, :zip)
-		end
-		def user_params
-			params.require(:user).permit(:first, :last)
-		end
+
+		
 end
