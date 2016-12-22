@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style type="text/css">
+	h1{
+		font-size: 100pt;
+	}
+</style>
+	<title>Order Options</title>
+</head>
+<body>
+<h1>MAP</h1>
+
+<h4>Miles: <%= @distance %></h4>
+
+<form action='/orders/create'>
+	<input type="hidden" name="authenticity_token" value='<%= form_authenticity_token %>'>
+	<p><input type="checkbox" value=""> 1 Hour - <%= number_to_currency(@oneTotal) %></p>
+	<p><input type="checkbox" value=""> 2 Hour - <%= number_to_currency(@twoTotal) %></p>
+	<p><input type="checkbox" value=""> 4 Hour - <%= number_to_currency(@fourTotal) %></p>
+	<p><input type="checkbox" value=""> 6 Hour - <%= number_to_currency(@sixTotal) %></p>
+	<p><input type="checkbox" value=""> 8 Hour - <%= number_to_currency(@eightTotal) %></p>
+	<p><input type="checkbox" value=""> 12 Hour - <%= number_to_currency(@twelveTotal) %></p>
+
+</form>
+
+</body>
+</html>

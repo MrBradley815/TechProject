@@ -1,7 +1,7 @@
 class CompaniesController < ApplicationController
-    before_action :require_admin
-    before_action :require_login
-    before_action :require_correct_user
+    # before_action :require_admin
+    # before_action :require_login
+    # before_action :require_correct_user
     def index
 
     end

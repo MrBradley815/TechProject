@@ -3,13 +3,13 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
-  def require_correct_user
-      user = User.find(params[:id])
-      redirect_to "/events" if current_user != user
-  end
-  def require_admin
-      redirect_to "/sessions/new" if current_user.level != 1
-  end
+  # def require_correct_user
+  #     user = User.find(params[:id])
+  #     redirect_to "/events" if current_user != user
+  # end
+  # def require_admin
+  #     redirect_to "/sessions/new" if current_user.level != 1
+  # end
   def require_login
       redirect_to '/sessions/new' if session[:user_id] == nil
   end

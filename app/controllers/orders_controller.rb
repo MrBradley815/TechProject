@@ -1,11 +1,24 @@
 class OrdersController < ApplicationController
-    before_action :require_admin
-    before_action :require_login
-    before_action :require_correct_user
+    # before_action :require_admin
+    # before_action :require_login
+    # before_action :require_correct_user
     def index
 
     end
     def new
+        @distance = Order.find(1).distance
+        @oneHour = current_user.company.courier.rates.find_by(normHour:1)
+        @twoHour = current_user.company.courier.rates.find_by(normHour:2)
+        @fourHour = current_user.company.courier.rates.find_by(normHour:4)
+        @sixHour = current_user.company.courier.rates.find_by(normHour:6)
+        @eightHour = current_user.company.courier.rates.find_by(normHour:8)
+        @twelveHour = current_user.company.courier.rates.find_by(normHour:12)
+        @oneTotal = (@distance - 1) * @oneHour.normPerMile + @oneHour.normFirst
+        @twoTotal = (@distance - 1) * @twoHour.normPerMile + @twoHour.normFirst
+        @fourTotal = (@distance - 1) * @fourHour.normPerMile + @fourHour.normFirst
+        @sixTotal = (@distance - 1) * @sixHour.normPerMile + @sixHour.normFirst
+        @eightTotal = (@distance - 1) * @eightHour.normPerMile + @eightHour.normFirst
+        @twelveTotal = (@distance - 1) * @twelveHour.normPerMile + @twelveHour.normFirst
         @company = Company.find(current_user.company.id)
     end
     def create
